@@ -1,0 +1,224 @@
+% !TeX program = pdflatex
+
+\documentclass[twocolumn,proof]{ICCKjournal} % lineno, proof, onecolumn
+
+%\documentclass[twocolumn]{ICCKjournal} % lineno, proof, onecolumn
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[none]{hyphenat}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{lipsum}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage[ruled]{algorithm2e}
+\let\procedure\relax
+\let\endprocedure\relax
+
+\usetikzlibrary{arrows.meta}
+\graphicspath{{res/},{media/},{figures/}}
+
+\AtBeginEnvironment{thebibliography}{\small}
+\usepackage{newfloat,array}
+\newcolumntype{P}[1]{p{#1}<{\raggedright}}
+\DeclareFloatingEnvironment[fileext=prc,placement={htb},name=Procedure]{prc}
+\captionsetup[prc]{labelfont={sf,bf,normalsize},skip=0pt}
+\newcounter{procedure}
+\setcounter{procedure}{1}
+\NewDocumentEnvironment{procedure}{O{ht} m}{%
+\begin{prc}[#1]
+\caption{#2}
+\begin{mdframed}[%
+  backgroundcolor=black!10!white,
+  font=\ttfamily,
+  roundcorner=2pt]
+}{\end{mdframed}\end{prc}}
+\def\showlinenobeforemath{\par\vspace{-\baselineskip}\noindent}
+
+% Article type: Article, Review, Editorial
+\articletype{Research Report}
+% editor(s), with orcid (optional)
+\editor[0000-0001-7897-1673]{Editor A}
+% \editor[0000-0000-0000-0000]{Editor2 Name}
+% submission history
+\submitdate{submit-date}
+\acceptdate{accept-date}
+\pubdate{pub-date}
+% \paperlink{\includegraphics[width=1.7cm]{paperlink}}
+
+\jnlsetup{%
+    author  = {Author, A., Author, B., \& Author, C.},
+    journal = {ICCK Transactions and Journals},
+    title   = {Reporte de},  % Manuscript title
+    ctitle  = {Preparation of Manuscripts for ICCK TRANSACTIONS and JOURNALS (2026)},  % Manuscript title
+    volume  = {1},
+    number  = {1},
+    year    = {2026},
+    doi     = {10.62762/ICCK.2026.000000}
+}
+% Data availability
+\dataavail{%
+The data used to support the findings of this study are available from the corresponding author upon request.}
+
+\setcounter{page}{1}
+\makeatother
+\begin{document}
+%% -- Complete author and affiliation info
+% \author[<superscipt>][<corresponding.author.email>]{<name>}[<orcid>]
+\author[1,2]{A. Author}[0000-0000-0000-0000]
+\author[2][e-mail@e-mail.com]{B. Author}[0000-0000-0000-0000]
+\author[2]{C. Author}[0000-0000-0000-0000]
+
+\affil[1]{Instituto de Ciencias Nucleares, Universidad Nacional Autónoma de México.}
+\affil[2]{School of B, University of B, Spokane 02139, USA}
+
+%\thanks[$\dagger$]{These authors contributed equally to this work}
+
+
+
+\maketitle
+\abstract{Abstract are usually about 250 words, and for research articles they should give the background to the work, the methodology and the results. ICCK strongly encourages authors to use a structured abstract in the following style: (1) Background: puts the problem discussed in a broad context and highlights the purpose of the study, as well as the constraints faced by the study; (2) Methods: briefly describes the main methods or treatments used; (3) Results: summarizes the main findings of the article as well as the shortcomings of the work; and (4) Conclusions: points out the main conclusions or interpretations. The abstract should be an objective representation of the article and should not contain results that are not presented and confirmed in the main text or exaggerate the main conclusions.}
+
+\keywords{Keywords 1, keywords 2, keywords 3, keywords 4, keywords 5.}
+
+%% -- citationblock
+\begin{figure}[b]
+	\citationblock
+	\vspace*{-.98em}
+\end{figure}
+
+
+% \begin{minipage}{.7\linewidth}
+% \hangindent 2.3cm\hangafter -2
+% \makebox[0pt][l]{\hspace*{-2.3cm}\tikz[remember picture,overlay]{\node[anchor = north west,inner sep=0pt,yshift=6pt] at (0,2pt) {\includegraphics[width=2.2cm]{doclicense-CC-by-88x31}}}}\textcopyright{} The Author(s) 2023. \textbf{Open Access} This aricle is licensed under a Creative Commons Attribution 4.0 Intermational License (\url{https://creativecommons.orgllicenses/by/4.0/}), which permits unrestricted use, sharing, adaptation, distribution and reproduction in any medium or format, for any purpose, even commerclally, as long as you give appropriale credit to the original authorls) and the source, provide a link to the Creative Commons license, and indicate if changes were made.
+% \end{minipage}\hfill
+% \begin{minipage}{.27\linewidth}
+% \end{minipage}
+
+\section{Introduction}
+Introduction should be given in this section~\cite{1}.
+\lipsum[2]
+
+\section{Related Work}
+Related Work should be given in this section~\cite{2}.
+\lipsum[3]
+\lipsum[3]
+
+\section{Methodology}
+Methodology should be given in this section~\cite{3}. Figures as shown in Fig. \ref{fig1}.
+\lipsum[1]
+
+\begin{algorithm}
+  \KwData{this text}
+  \KwResult{how to write algorithm with \LaTeX2e}
+  initialization\;
+  \While{not at end of this document}{
+    read current\;
+    \eIf{understand}{
+      go to next section\;
+      current section becomes this one\;
+      }{
+      go back to the beginning of current section\;
+      }
+    }
+  \caption{How to write algorithms}
+\end{algorithm}
+
+\lipsum[1] Algorithm 1 as shown bellow:
+
+\section{Experiments}
+Experiments and results should be given in this section~\cite{2}. Table \ref{tab1} as shown bellow.
+\lipsum[1]
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.99\linewidth]{figures/fig1}
+	\caption{Mimic octopus.}
+	\label{fig1}
+\end{figure}
+
+\lipsum[2]
+
+\begin{table}[h]
+	\centering
+	\caption{Forest fire classification table.} \label{tab1}
+	\begin{tabular}{cp{.53\linewidth}}
+		\toprule
+\textbf{Classification} &	\textbf{Overall Accuracy}
+\\ \midrule
+	0.98 &	0.98
+\\
+0.98	& 0.98
+ \\
+ 0.98 &	0.98
+ \\
+ 0.98 &0.98
+ \\
+ 0.98 &	0.98
+ \\ \bottomrule
+	\end{tabular}
+\end{table}
+
+\section{Conclusion}
+Conclusion should be given in this section~\cite{2}.
+\lipsum[1]
+
+\par
+\vspace{10pt}
+{\large\textbf{Data Availability Statement}}
+
+Data will be made available on request.
+
+\acknowledgement
+This work was supported without any funding.
+
+\conflictsofinterest
+The authors declare no conflicts of interest. 
+
+\vspace{10pt}
+
+{\large\textbf{AI Use Statement}} 
+
+The authors declare that no generative AI was used in the preparation of this manuscript.
+
+\vspace{10pt}
+
+{\large\textbf{Ethical Approval and Consent to Participate}} 
+
+Not applicable.
+
+%\bibliography{sample,citation}
+%\printbibliography[notcategory=fullcited,resetnumbers=true]
+
+\begin{fullwidth}
+\begin{thebibliography}{99}
+% APA Style
+\bibitem{1} Shazia, A., Dahri, F. H., Ali, A., Adnan, M., Laghari, A. A., \& Nawaz, T. (2024). Automated Early Diabetic Retinopathy Detection Using a Deep Hybrid Model. ICCK Transactions on Emerging Topics in Artificial Intelligence, 1(1), 71-83. [\href{https://doi.org/10.62762/TETAI.2024.305743}{CrossRef}]
+
+\bibitem{2} Guo, X., Yang, F., \& Ji, L. (2024). A mimic fusion algorithm for dual channel video based on possibility distribution synthesis theory. Chinese Journal of Information Fusion, 1(1), 33-49. [\href{https://doi.org/10.62762/CJIF.2024.361886}{CrossRef}]
+
+\bibitem{3} Wang, F., Jin, X., \& Yi, S. (2024). LI3D-BiLSTM: A Lightweight Inception-3D Networks with BiLSTM for Video Action Recognition. ICCK Transactions on Emerging Topics in Artificial Intelligence, 1(1), 58–70. [\href{https://doi.org/10.62762/TETAI.2024.628205}{CrossRef}]
+
+\end{thebibliography}
+\end{fullwidth}
+
+\makeatletter
+\if@twocolumn
+
+  \begin{biography}[author1]{Author A} (Member, ICCK) received the B.S. degree in software engineering from University of Pennsylvania, PA 19104, USA, in 2012. (Email: email@email.com)
+  \end{biography}
+
+  \begin{biography}[author2]{Author B} (Senior Member, ICCK) received the B.S. degree in software engineering from University of Pennsylvania, PA 19104, USA, in 2012. (Email: email@email.com)
+  \end{biography}
+
+  \begin{biographynophoto}{Author C} (Fellow, ICCK) received the PhD. degree in software engineering from University of Pennsylvania, PA 19104, USA, in 2012. Her research interests include hyperspectral remote sensing image analysis and applications, pattern classification, data compression, and neural networks. She is a fellow of the ICCK for Optics and Photonics. She served as an Associate Editor for the ICCK Journal A and B, and the journal of C. (Email: email@email.com)
+  \end{biographynophoto}
+
+\else
+
+\fi
+
+\makeatother
+
+\end{document}
